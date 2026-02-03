@@ -1,0 +1,103 @@
+.body-container {
+  display: grid;
+  grid-template-columns: repeat(40, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+  background-color: aqua;
+  height: 80vh;
+   
+}
+* {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+.sky {
+  background-color: #87ceeb;
+}
+.stone1 {
+  background-image: url("./Stone1.jpg");
+}
+.coal {
+  background-image: url("./coal.png");
+}
+.creeperBody {
+  background-image: url("./creeperBody.png");
+}
+.creeperFace {
+  background-image: url("./creeperFace.png");
+}
+.gold {
+  background-image: url("./gold.png");
+}
+.grass1 {
+  background-image: url("./grass1.png");
+}
+.leaves1 {
+  background-image: url("./leaves1.png");
+}
+.redstone {
+  background-image: url("./redstone.jpeg");
+}
+.soil1 {
+  background-image: url("./soil1.png");
+}
+.wood1 {
+  background-image: url("./wood1.png");
+}
+.diamond {
+  background-image: url("./diamond.png");
+}
+.tools-box{
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    *{
+        border-radius: 10px;
+    }
+}
+
+h3{
+    color: white;
+    padding: 1.5rem 2rem;
+    background-color: rgb(136, 133, 133);
+}
+button{
+    padding: 1rem 3rem;
+    background-color: rgb(136, 133, 133);
+}
+.tools{
+    display: flex;
+    align-items: center;
+}
+.box{
+    background-image: url('./box.png');
+    height: 7rem;
+    width: 7rem;
+}
+.tool{
+    background-color: rgb(136, 133, 133);
+    margin: 0.4rem;
+    
+}
+.axe{
+    background-image: url('./axe.png');
+    height: 4rem;
+    width: 4rem;
+}
+.shovel{
+    background-image: url('./shovel.png');
+    height: 4rem;
+    width: 4rem;
+}
+.pickaxe{
+    background-image: url('./pickaxe.png');
+    height: 4rem;
+    width: 4rem;
+}
+.sword{
+    background-image: url('./sword.png');
+    height: 4rem;
+    width: 4rem;
+}
