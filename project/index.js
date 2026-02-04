@@ -175,23 +175,18 @@ function removeImg() {
   const dives = document.querySelectorAll(".body-container div");
   dives.forEach((div) => {
     div.addEventListener("click", (e) => {
-      console.log(2);
       const divnow = div.className;
-      console.log(divnow);
-      console.log(toolNow);
 
       if (
         (divnow === "leaves1" || divnow === "wood1") &&
         toolNow === "axe tool"
       ) {
         div.className = "sky";
-        console.log(div);
       } else if (
         (divnow === "soil1" || divnow === "grass1") &&
         toolNow === "shovel tool"
       ) {
         div.className = "sky";
-        console.log(div);
       } else if (
         (divnow === "stone1" ||
           divnow === "stone1 coal" ||
@@ -201,18 +196,35 @@ function removeImg() {
         toolNow === "pickaxe tool"
       ) {
         div.className = "sky";
-        console.log(div);
       } else if (
         (divnow === "creeperFace" || divnow === "creeperBody") &&
         toolNow === "sword tool"
       ) {
         div.className = "sky";
-        console.log(div);
       }
     });
   });
 }
-
-createBoard();
-placestone();
-removeImg();
+function boxs() {
+  const boxContent2 = document.querySelector(".box-content2");
+  const box = document.querySelector(".box");
+  box.addEventListener("click", (e) => {
+    boxContent2.classList.toggle("box-content");
+  });
+}
+function resetGame() {
+  const bodyContainer = document.querySelector(".body-container");
+  const reset = document.querySelector(".reset");
+  reset.addEventListener("click", (e) => {
+    bodyContainer.innerHTML = "";
+    startGame();
+  });
+}
+function startGame() {
+  createBoard();
+  placestone();
+  removeImg();
+  resetGame();
+}
+startGame();
+boxs();

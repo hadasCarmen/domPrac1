@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(40, 1fr);
   grid-template-rows: repeat(25, 1fr);
-  background-color: aqua;
   height: 80vh;
    
 }
@@ -70,6 +69,13 @@ button{
 .tools{
     display: flex;
     align-items: center;
+}
+.box-content2{
+  background-color: gray;
+  padding: 12rem;
+}
+.box-content{
+  display: none;
 }
 .box{
     background-image: url('./box.png');
