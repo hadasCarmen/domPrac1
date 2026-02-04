@@ -164,19 +164,42 @@ function placestone() {
     }
   });
 }
-// function removeImg() {
-//   change.addEventListener("click", (e) => {
-//     if (e.targe.className === "") {
-
-//     } else if (condition) {
-
-//     } else if (condition) {
-
-//     } else {
-
-//     }
-//   });
-// }
+function removeImg() {
+  let toolNow = null;
+  const toolsNow = document.querySelectorAll(".tool");
+  toolsNow.forEach((tool) => {
+    tool.addEventListener("click", (e) => {
+      toolNow = tool.className;
+      console.log(1);
+      
+    });
+  });
+  const dives = document.querySelectorAll("div");
+  dives.forEach((div) => {
+    div.addEventListener("click", (e) => {
+      console.log(2);
+      const div=div.className
+      if (
+        div === "soil1" ||
+        (div === "grass1" && toolNow === "axe")
+      ) {
+      } else if (
+        div === "soil1" ||
+        (div === "grass1" && toolNow === "shovel")
+      ) {
+      } else if (
+        div === "soil1" ||
+        (div === "grass1" && toolNow === "pickaxe")
+      ) {
+      } else if (
+        div === "soil1" ||
+        (div === "grass1" && toolNow === "sword")
+      ) {
+      }
+    });
+  });
+}
 
 createBoard();
 placestone();
+removeImg()
