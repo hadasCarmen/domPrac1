@@ -94,6 +94,9 @@ button{
 .box-content{
   display: none;
 }
+.invisible {
+  visibility: hidden;
+}
 .box{
     background-image: url('./box.png');
     height: 7rem;

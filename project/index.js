@@ -256,7 +256,7 @@ function resetGame() {
     boxChildren.forEach((child) => child.remove());
     listRemoved={}
     startGame();
-    reset.setAttribute("hidden", "true");
+    reset.classList.add("invisible");
   });
 }
 let listRemoved = {};
@@ -275,7 +275,7 @@ function editBox() {
     }
     if (Object.keys(listRemoved).length === 1) {
         const reset = document.querySelector(".reset");
-        reset.removeAttribute("hidden");
+        reset.classList.remove("invisible");
       }
   });
 }
