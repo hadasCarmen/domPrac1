@@ -170,31 +170,44 @@ function removeImg() {
   toolsNow.forEach((tool) => {
     tool.addEventListener("click", (e) => {
       toolNow = tool.className;
-      console.log(1);
-      
     });
   });
-  const dives = document.querySelectorAll("div");
+  const dives = document.querySelectorAll(".body-container div");
   dives.forEach((div) => {
     div.addEventListener("click", (e) => {
       console.log(2);
-      const div=div.className
+      const divnow = div.className;
+      console.log(divnow);
+      console.log(toolNow);
+
       if (
-        div === "soil1" ||
-        (div === "grass1" && toolNow === "axe")
+        (divnow === "leaves1" || divnow === "wood1") &&
+        toolNow === "axe tool"
       ) {
+        div.className = "sky";
+        console.log(div);
       } else if (
-        div === "soil1" ||
-        (div === "grass1" && toolNow === "shovel")
+        (divnow === "soil1" || divnow === "grass1") &&
+        toolNow === "shovel tool"
       ) {
+        div.className = "sky";
+        console.log(div);
       } else if (
-        div === "soil1" ||
-        (div === "grass1" && toolNow === "pickaxe")
+        (divnow === "stone1" ||
+          divnow === "stone1 coal" ||
+          divnow === "stone1 gold" ||
+          divnow === "stone1 redstone" ||
+          divnow === "stone1 diamond") &&
+        toolNow === "pickaxe tool"
       ) {
+        div.className = "sky";
+        console.log(div);
       } else if (
-        div === "soil1" ||
-        (div === "grass1" && toolNow === "sword")
+        (divnow === "creeperFace" || divnow === "creeperBody") &&
+        toolNow === "sword tool"
       ) {
+        div.className = "sky";
+        console.log(div);
       }
     });
   });
@@ -202,4 +215,4 @@ function removeImg() {
 
 createBoard();
 placestone();
-removeImg()
+removeImg();
