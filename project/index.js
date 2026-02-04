@@ -176,7 +176,7 @@ function removeImg() {
       const tourl=toolUrl['background-image']
       
 
-      document.body.style.cursor = `${url('path/to/custom.cur')}, auto`;//////לטפלללללל
+      // document.body.style.cursor = `${url('path/to/custom.cur')}, auto`;//////לטפלללללל
       console.log(document.body.style.cursor);
     });
   });
@@ -184,7 +184,7 @@ function removeImg() {
   dives.forEach((div) => {
     div.addEventListener("click", (e) => {
       const divnow = div.className;
-
+      
       if (
         (divnow === "leaves1" || divnow === "wood1") &&
         toolNow === "axe tool"
@@ -232,7 +232,10 @@ function removeImg() {
         }
         div.className = "sky";
       }
+       
       editBox();
+      
+      
     });
   });
 }
@@ -253,10 +256,12 @@ function resetGame() {
     boxChildren.forEach((child) => child.remove());
     listRemoved={}
     startGame();
+    reset.setAttribute("hidden", "true");
   });
 }
 let listRemoved = {};
 function editBox() {
+ 
   const boxContent2 = document.querySelector(".box-content2");
   const boxChildren = [...boxContent2.children];
   boxChildren.forEach((child) => child.remove());
@@ -268,6 +273,10 @@ function editBox() {
       div.innerText = `${item}: ${count}`;
       boxContent2.appendChild(div);
     }
+    if (Object.keys(listRemoved).length === 1) {
+        const reset = document.querySelector(".reset");
+        reset.removeAttribute("hidden");
+      }
   });
 }
 function startGame() {
