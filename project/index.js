@@ -1,5 +1,3 @@
-
-
 const bodyContainer = document.querySelector(".body-container");
 
 function createBoard() {
@@ -172,19 +170,32 @@ function removeImg() {
   toolsNow.forEach((tool) => {
     tool.addEventListener("click", (e) => {
       toolNow = tool.className;
-      const toolUrl= window.getComputedStyle(tool)
-      const tourl=toolUrl['background-image']
-      
+      const style = window.getComputedStyle(tool);
+      let bgImage = style.backgroundImage;
+      bgImage = bgImage.slice(5, -2);
+      const img = new Image();
+      img.src = bgImage;
 
-      // document.body.style.cursor = `${url('path/to/custom.cur')}, auto`;//////לטפלללללל
-      console.log(document.body.style.cursor);
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const size = 32;
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+
+        ctx.drawImage(img, 0, 0, size, size);
+
+        const smallUrl = canvas.toDataURL("image/png");
+
+        document.body.style.cursor = `url(${smallUrl}) 16 16, auto`;
+      };
     });
   });
   const dives = document.querySelectorAll(".body-container div");
   dives.forEach((div) => {
     div.addEventListener("click", (e) => {
       const divnow = div.className;
-      
+
       if (
         (divnow === "leaves1" || divnow === "wood1") &&
         toolNow === "axe tool"
@@ -232,10 +243,8 @@ function removeImg() {
         }
         div.className = "sky";
       }
-       
+
       editBox();
-      
-      
     });
   });
 }
@@ -254,14 +263,14 @@ function resetGame() {
     const boxContent2 = document.querySelector(".box-content2");
     const boxChildren = [...boxContent2.children];
     boxChildren.forEach((child) => child.remove());
-    listRemoved={}
+    listRemoved = {};
     startGame();
     reset.classList.add("invisible");
+    document.body.style.cursor = "default";
   });
 }
 let listRemoved = {};
 function editBox() {
- 
   const boxContent2 = document.querySelector(".box-content2");
   const boxChildren = [...boxContent2.children];
   boxChildren.forEach((child) => child.remove());
@@ -274,9 +283,9 @@ function editBox() {
       boxContent2.appendChild(div);
     }
     if (Object.keys(listRemoved).length === 1) {
-        const reset = document.querySelector(".reset");
-        reset.classList.remove("invisible");
-      }
+      const reset = document.querySelector(".reset");
+      reset.classList.remove("invisible");
+    }
   });
 }
 function startGame() {
