@@ -1,3 +1,5 @@
+
+
 const bodyContainer = document.querySelector(".body-container");
 
 function createBoard() {
@@ -170,6 +172,12 @@ function removeImg() {
   toolsNow.forEach((tool) => {
     tool.addEventListener("click", (e) => {
       toolNow = tool.className;
+      const toolUrl= window.getComputedStyle(tool)
+      const tourl=toolUrl['background-image']
+      
+
+      document.body.style.cursor = `${url('path/to/custom.cur')}, auto`;//////לטפלללללל
+      console.log(document.body.style.cursor);
     });
   });
   const dives = document.querySelectorAll(".body-container div");
@@ -181,11 +189,22 @@ function removeImg() {
         (divnow === "leaves1" || divnow === "wood1") &&
         toolNow === "axe tool"
       ) {
+        if (listRemoved[div.className]) {
+          listRemoved[div.className] += 1;
+        } else {
+          listRemoved[div.className] = 1;
+        }
+
         div.className = "sky";
       } else if (
         (divnow === "soil1" || divnow === "grass1") &&
         toolNow === "shovel tool"
       ) {
+        if (listRemoved[div.className]) {
+          listRemoved[div.className] += 1;
+        } else {
+          listRemoved[div.className] = 1;
+        }
         div.className = "sky";
       } else if (
         (divnow === "stone1" ||
@@ -195,13 +214,25 @@ function removeImg() {
           divnow === "stone1 diamond") &&
         toolNow === "pickaxe tool"
       ) {
+        if (listRemoved[div.className]) {
+          listRemoved[div.className] += 1;
+        } else {
+          listRemoved[div.className] = 1;
+        }
+
         div.className = "sky";
       } else if (
         (divnow === "creeperFace" || divnow === "creeperBody") &&
         toolNow === "sword tool"
       ) {
+        if (listRemoved[div.className]) {
+          listRemoved[div.className] += 1;
+        } else {
+          listRemoved[div.className] = 1;
+        }
         div.className = "sky";
       }
+      editBox();
     });
   });
 }
@@ -217,7 +248,26 @@ function resetGame() {
   const reset = document.querySelector(".reset");
   reset.addEventListener("click", (e) => {
     bodyContainer.innerHTML = "";
+    const boxContent2 = document.querySelector(".box-content2");
+    const boxChildren = [...boxContent2.children];
+    boxChildren.forEach((child) => child.remove());
+    listRemoved={}
     startGame();
+  });
+}
+let listRemoved = {};
+function editBox() {
+  const boxContent2 = document.querySelector(".box-content2");
+  const boxChildren = [...boxContent2.children];
+  boxChildren.forEach((child) => child.remove());
+  const stack = Object.entries(listRemoved);
+  stack.forEach(([item, count]) => {
+    if (count) {
+      const div = document.createElement("div");
+      div.className = item;
+      div.innerText = `${item}: ${count}`;
+      boxContent2.appendChild(div);
+    }
   });
 }
 function startGame() {

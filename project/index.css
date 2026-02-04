@@ -69,10 +69,27 @@ button{
 .tools{
     display: flex;
     align-items: center;
+    position: relative;
 }
 .box-content2{
   background-color: gray;
-  padding: 12rem;
+  height: 10rem;
+  width: 10rem;
+  padding: 10rem;
+  position: absolute;
+  bottom: 20% ;
+  left: -130%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+  justify-content: center;
+  
+
+}
+.box-content2>*{
+  flex-wrap: wrap;
+  height: 4rem;
+  width: 4rem;
 }
 .box-content{
   display: none;
