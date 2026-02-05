@@ -1,0 +1,38 @@
+/* .big-box{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+} */
+ body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+ }
+ .actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .reset{
+    display: flex;
+    justify-content: center;
+ }
+ .result{
+    background-color: gray;
+    width: 100%;
+    min-height: 3rem;
+ }
+ .history{
+    background-color: aqua;
+    width: 100%;
+    min-height: 3rem;
+    
+    border: 2px dashed blue;
+
+ }
+ .title{
+    display: flex;
+    justify-content: center;
+ }

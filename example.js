@@ -19,7 +19,7 @@ const div = document.getElementById("myDiv");
 console.log(div.textContent); // "שלום עולם"
 
 div.textContent = "היי!";
-console.log(div.textContent); // "היי!"
+console.log(div.textContent); // "היי!" innertext גם אפשרי
 
 
 <input id="nameInput" type="text" value="Alice">
